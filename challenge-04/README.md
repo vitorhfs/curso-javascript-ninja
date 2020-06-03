@@ -70,7 +70,7 @@ passado por parâmetro.
 */
 carro.mudarCor = function(cor) {
 	carro.cor = cor;
-	}
+};
 
 
 /*
