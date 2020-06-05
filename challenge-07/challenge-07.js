@@ -1,116 +1,75 @@
 /*
-Declare uma variável chamada `sum` e atribua a ela uma função chamada
-`calculateSum`. A função deve receber dois parâmetros e retornar a soma
-desses parâmetros.
+Crie um array com 5 items (tipos variados).
 */
-var sum = function calculateSum (x, y){
-	valor1 = x;
-	valor2 = y;
-	return x + y;
-};
+var arr = ['virto', 126, true, function () {}, { objeto: 'objeto'}];
 
 /*
-Invoque a função criada acima, passando dois números que serão somados, e mostre
-o resultado no console, com a frase:
-"A soma de [VALOR 1] e [VALOR2] é igual a [RESULTADO]."
+Crie uma função chamada `addItem`, que irá adicionar itens no array criado.
+A função deverá retornar o array atualizado.
 */
-var resultado = sum(3, 4);
-console.log('A soma de ' + valor1 + ' e ' + valor2 + ' é igual a ' + resultado + '.');
-
-
-/*
-Mostre no console o nome da função criada acima, com a frase:
-"O nome da função que faz a soma é [NOME DA FUNÇÃO]."
-*/
-console.log ('O nome da função que faz a soma é ' + sum.name + '.');
-
-/*
-Crie uma função literal chamada `showName`. Essa função deve retornar o
-seu nome.
-*/
-function showName (){
-	return 'Vitor Hugo';
-};
-
-/*
-Declare uma variável chamada `varShowName` que recebe a função criada acima.
-*/
-var varShowName = showName;
-
-/*
-Usando a variável criada acima, mostre no console o nome e o retorno da função
-atribuída a ela, com a seguinte frase:
-"A função [NOME DA FUNÇÃO] retorna [RETORNO DA FUNÇÃO]."
-*/
-console.log('A função ' + varShowName.name + ' retorna ' + varShowName() + '.')
-
-/*
-Crie uma função literal chamada `calculator`, que funcione assim:
-- A função deve receber um parâmetro que dirá qual operação matemática ela
-vai efetuar. Será uma string com os valores `+`, `-`, `*`, `/` ou `%`;
-- Essa função deve retornar uma segunda função que fará o seguinte:
-  - Essa segunda função deve receber dois parâmetros;
-  - Esses dois parâmetros serão os operandos usados na operação matemática;
-  - O retorno dessa segunda função é a operação matemática completa, com a frase:
-  "Resultado da operação: [NUMERO1] [OPERADOR] [NUMERO2] = [RESULTADO]."
-  - Se o operador não for válido, retornar a frase:
-  "Operação inválida."
-*/
-function calculator(operador){
-		
-	return function parameter(number1, number2){
-	var result;
-		switch( operador ){
-			case '+': 
-			result = number1 + number2;
-			break;
-			case '-':
-			result = number1 - number2;
-			break;
-			case '*':
-			result = number1 * number2;
-			break;
-			case '/':
-			result = number1 / number2;
-			break;
-			case '%':
-			result = number1 % number2;
-			break;
-			default:
-			return console.log('Operação inválida.')
-		}
-		return 'Resultado da operação: ' + number1 + ' ' + operador + ' ' + number2 + ' = ' + result + '.';
-	};
+function addItem ( item ){
+	arr.push( item );
+	return arr;
 }
 
-
+/*
+Adicione um novo array ao array criado no início do desafio, com ao menos 3
+itens de tipos diferentes, mostrando o resultado no console.
+*/
+console.log(addItem(['hugo', 315, false]));
 
 /*
-Declare uma variável chamada `sum`, que receberá a função acima, passando como
-parâmetro o operador de soma.
+Mostre no console o segundo elemento desse último array, criado acima, com a
+frase:
+"O segundo elemento do segundo array é [ELEMENTO]."
 */
-var sum = calculator('+');
+console.log('O segundo elemento do segundo array é ' + arr[5][1] + '.');
 
 /*
-Agora `sum` é uma função. Mostre no console a soma de dois números, usando ela.
+Mostre no console quantos itens tem o primeiro array criado, com a frase:
+"O primeiro array tem [QUANTIDADE DE ITENS] itens."
 */
-console.log(sum(5, 5));
+console.log('O primeir array tem ' + arr.length + ' itens.');
 
 /*
-Agora, declare algumas variáveis com os nomes `subtraction`, `multiplication`,
-`division` e `mod`, e atribua a elas a função `calculator`, passando o operador
-correto por parâmetro para cada uma delas.
+Agora mostre no console quantos itens tem o segundo array criado, com a frase:
+"O segundo array tem [QUANTIDADE DE ITENS] itens."
 */
-var subtraction = calculator('-');
-var multiplication = calculator('*');
-var division = calculator('/');
-var mod = calculator('%');
+console.log('O segundo array tem ' + arr[5].length + ' itens.')
 
 /*
-Faça uma operação com cada uma das funções criadas acima, mostrando o resultado
-no console.
+Utilizando a estrutura de repetição `while`, mostre no console todos os números
+pares entre 10 e 20, inclusive esses 2.
 */
-console.log(subtraction(5, 2));
-console.log(multiplication(5, 10));
-console.log(division(25, 5));
-console.log(mod(10, 4));
+console.log( 'Números pares entre 10 e 20:' );
+var value = 10;
+while ( value >= 10 && value <= 20 ){
+	value % 2 === 0 ? console.log(value) : '';
+	value++
+}
+
+/*
+Na mesma ideia do exercício acima: mostre agora os números ímpares.
+*/
+console.log( 'Números ímpares entre 10 e 20:' );
+var value = 10;
+while ( value >= 10 && value < 20 ){
+	++value % 2 === 1 ? console.log(value) : '';
+	
+}
+
+/*
+Repita os mesmos exercícios feitos acima, mas agora usando o loop "for".
+Só vamos mudar o range:
+- No primeiro "for", mostre os números pares entre 100 e 120, inclusive eles;
+- No segundo "for", mostre os números ímpares entre 111 e 125, inclusive eles.
+*/
+console.log( 'Números pares entre 100 e 120:' );
+for(numero = 100; numero >= 100 && numero <= 120; numero++){
+	numero % 2 === 0 ? console.log(numero) : '';
+}
+
+console.log( 'Números ímpares entre 111 e 125:' );
+for(numero1 = 111; numero1 >= 111 && numero1 <= 125; numero1++){
+	numero1 % 2 !== 0 ? console.log(numero1) : '';
+}
